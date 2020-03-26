@@ -29,13 +29,13 @@
     let array = [];
     var input = document.getElementById("burst");
     document.getElementById("arrival").addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 && document.getElementById("arrival").value && document.getElementById("arrival").value !== '') {
             event.preventDefault();
             input.focus();
         }
     })
     input.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 && input.value && input.value !== '') {
             event.preventDefault();
             array.push(["P" + (array.length + 1), parseInt(document.getElementById("arrival").value), parseInt(input.value)])
             var s = array;
