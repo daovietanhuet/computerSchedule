@@ -69,16 +69,18 @@
 
     let schedule = (array, type, quantum) => {
         let sum = 0; 
+        let timeBeginMin = array[0][1];
         for(let i =0; i < array.length; i ++) {
             sum += array[i][2];
+            if(array[i][1] < timeBeginMin) timeBeginMin = array[i][1];
         }
         let cloneArray = JSON.parse(JSON.stringify(array));
-        let time = -1;
+        let time = timeBeginMin - 1;
         let result = [];
         let totalBurst = 0;
         let currentProcess = 0;
         let arrivalProcess = [];
-        let timeOld = 0;
+        let timeOld = timeBeginMin;
         while(true) {
             time ++;
             let isEmpty = false;
